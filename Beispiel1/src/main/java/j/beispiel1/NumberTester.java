@@ -5,9 +5,12 @@
  */
 package j.beispiel1;
 
-import java.io.File;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -37,18 +40,21 @@ public class NumberTester {
         this.palindromeTester = palindromeTester;
     }
     
-    public void testFile(){
+    public void testFile() {
      
-        Scanner scan = null;
-        try {
-            scan = new Scanner(new File(fileName));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        while (scan.hasNext()) {
-            System.out.println(scan.nextLine());
-        }
-        scan.close();
+       try (
+           BufferedReader reader =
+                   new BufferedReader(new FileReader(fileName))){
+           
+          int rowNumb = Integer.parseInt(reader.readLine());
+           
+       } catch (FileNotFoundException ex) {
+           Logger.getLogger(NumberTester.class.getName()).log(Level.SEVERE, null, ex);
+       } catch (IOException ex) {
+           Logger.getLogger(NumberTester.class.getName()).log(Level.SEVERE, null, ex);
+       }
+       
     }
+    
     
 }

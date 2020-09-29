@@ -9,6 +9,7 @@ package j.beispiel1;
  *
  * @author alexa
  */
-public class NumberTest {
+public interface NumberTest {
     
+    boolean testNumber(int number);
 }
