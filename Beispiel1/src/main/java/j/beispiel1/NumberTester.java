@@ -41,7 +41,17 @@ public class NumberTester {
     }
     
     public void testFile() {
-     
+        setOddEvenTester(number -> number % 2 != 0);
+        setPrimeTester(number -> {
+        int sqrt = (int) Math.sqrt(number) + 1;
+        for (int i = 2; i < sqrt; i++)
+        { if (number % i == 0) {  
+            return false; 
+        
+        } } return true;
+        });
+        
+        
        try (
            BufferedReader reader =
                    new BufferedReader(new FileReader(fileName))){
@@ -55,6 +65,19 @@ public class NumberTester {
               String[] parts = zeile.split(" ");
               int one = Integer.parseInt(parts[0]);
                int second = Integer.parseInt(parts[1]);
+               
+               switch(one){
+                   case 1:
+                      System.out.println( "Zahl ist: ");
+                      break;
+                   case 2:
+                        System.out.println( "Zahl ist: ");
+                        break;
+                   case 3:
+                        System.out.println( "Zahl ist: ");
+                       
+               }
+               
               
           }
            
