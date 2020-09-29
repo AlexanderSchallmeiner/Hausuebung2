@@ -47,6 +47,16 @@ public class NumberTester {
                    new BufferedReader(new FileReader(fileName))){
            
           int rowNumb = Integer.parseInt(reader.readLine());
+          
+          int action;
+          int numberToProve;
+          while(reader.readLine() != null){
+              String zeile = reader.readLine();
+              String[] parts = zeile.split(" ");
+              int one = Integer.parseInt(parts[0]);
+               int second = Integer.parseInt(parts[1]);
+              
+          }
            
        } catch (FileNotFoundException ex) {
            Logger.getLogger(NumberTester.class.getName()).log(Level.SEVERE, null, ex);
