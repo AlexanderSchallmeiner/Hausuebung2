@@ -71,42 +71,42 @@ public class NumberTester {
                    new BufferedReader(new FileReader(fileName))){
            
           int rowNumb = Integer.parseInt(reader.readLine());
+          System.out.println(rowNumb);
           int counter =0;
-          int action;
-          int numberToProve;
-          while(reader.readLine() != null && counter <= rowNumb){
+          
+          while( counter < rowNumb){
               
               String zeile = reader.readLine();
               String[] parts = zeile.split(" ");
               int one = Integer.parseInt(parts[0]);
                int second = Integer.parseInt(parts[1]);
-               
+               counter++;
                switch(one){
                    case 1:
                       
-                      if(this.oddTester.testNumber(second)){
-                          System.out.println(second + "is EVEN");
+                      if(this.oddTester.testNumber(second) == false){
+                          System.out.println(second + " is EVEN");
                       }else{
-                          System.out.println(second + "is not EVEN");
+                          System.out.println(second + " is not EVEN");
                       }
                       break;
                    case 2:
                         if(this.primeTester.testNumber(second)){
-                          System.out.println(second + "is PRIME");
+                          System.out.println(second + " is PRIME");
                       }else{
-                            System.out.println(second + "is no PRIME");
+                            System.out.println(second + " is no PRIME");
                         }
                         break;
                    case 3:
                        if(this.palindromeTester.testNumber(second)){
-                          System.out.println(second + "is PALINDROME");
+                          System.out.println(second + " is PALINDROME");
                       }else{
-                           System.out.println(second + "is no PALINDROME");
+                           System.out.println(second + " is no PALINDROME");
                        }
                        
                }
                
-              counter++;
+              
           }
            
        } catch (FileNotFoundException ex) {
