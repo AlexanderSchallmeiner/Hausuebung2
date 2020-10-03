@@ -50,6 +50,20 @@ public class NumberTester {
         
         } } return true;
         });
+        setPalindromeTester(number ->{
+            String number1 = String.valueOf(number);
+            String reservedNumber = new StringBuilder(number1).reverse().toString();
+            if(number1.equals(reservedNumber)){
+                
+                return true;
+            }else{
+                return false;
+            }
+            
+            
+            
+        });
+        
         
         
        try (
@@ -57,10 +71,11 @@ public class NumberTester {
                    new BufferedReader(new FileReader(fileName))){
            
           int rowNumb = Integer.parseInt(reader.readLine());
-          
+          int counter =0;
           int action;
           int numberToProve;
-          while(reader.readLine() != null){
+          while(reader.readLine() != null && counter <= rowNumb){
+              
               String zeile = reader.readLine();
               String[] parts = zeile.split(" ");
               int one = Integer.parseInt(parts[0]);
@@ -68,17 +83,30 @@ public class NumberTester {
                
                switch(one){
                    case 1:
-                      System.out.println( "Zahl ist: ");
+                      
+                      if(this.oddTester.testNumber(second)){
+                          System.out.println(second + "is EVEN");
+                      }else{
+                          System.out.println(second + "is not EVEN");
+                      }
                       break;
                    case 2:
-                        System.out.println( "Zahl ist: ");
+                        if(this.primeTester.testNumber(second)){
+                          System.out.println(second + "is PRIME");
+                      }else{
+                            System.out.println(second + "is no PRIME");
+                        }
                         break;
                    case 3:
-                        System.out.println( "Zahl ist: ");
+                       if(this.palindromeTester.testNumber(second)){
+                          System.out.println(second + "is PALINDROME");
+                      }else{
+                           System.out.println(second + "is no PALINDROME");
+                       }
                        
                }
                
-              
+              counter++;
           }
            
        } catch (FileNotFoundException ex) {
